@@ -10,47 +10,51 @@
 // 5,adaine5@samsung.com,Antonietta,F
 
 // Example format of an intern object: 1,examples@you.edu,Example,F
-const example = {
-  "id": 0,
-  "name": "Example",
-  "email": "examples@you.edu",
-  "gender": "F"
-}
+// const example = {
+//   "id": 0,
+//   "name": "Example",
+//   "email": "examples@you.edu",
+//   "gender": "F"
+// }
 
 // Write your intern objects here:
-const intern = [{'id': 1, 'name': 'Mitzi','email': 'mmelloy0@psu.edu','gender': 'F'},
-{'id': 2,'name': 'Kennan','email': 'kdiben1@tinypic.com','gender': 'M'},
-{'id': 3,'name': 'Keven','email': 'kmummery2@wikimedia.com','gender': 'M'},
-{'id': 4,'name': 'Gannie','email': 'gmartinson3@illinois.edu','gender': 'M'},
-{'id': 5,'name': 'Antonietta','email': 'adaine5@samsung.com','gender': 'F'}];
+function InternObj(id, name, email, gender){
+  this.id = id,
+  this.name = name,
+  this.email = email,
+  this.gender = gender;
+}
+
+let mitzi = new InternObj(1, 'Mitzi', 'mmelloy0@psu.edu', 'F'),
+    kennan = new InternObj(2, 'Kennan', 'kdiben1@tinypic.com', 'M'),
+    keven = new InternObj(3, 'Keven', 'kmummery2@wikimedia.com', 'M'),
+    gannie = new InternObj(4, 'Gannie', 'gmartinson3@illinois.edu', 'F'),
+    antonietta = new InternObj(5, 'Antonienetta', 'adaine5@samsung.com', 'F');
 
 // ==== Challenge 2: Reading Object Data ====
 // Once your objects are created, log out the following requests from HR into the console:
 
 // Mitzi's name
-console.log(intern[0].name);
+console.log(mitzi.name);
 // Kennan's ID
-console.log(intern[1].id);
+console.log(kennan.id);
 // Keven's email
-console.log(intern[2].email);
+console.log(keven.email);
 // Gannie's name
-console.log(intern[3].name);
+console.log(gannie.name);
 // Antonietta's Gender
-console.log(intern[4].gender);
+console.log(antonietta.gender);
 // ==== Challenge 3: Object Methods ====
 // Give Kennan the ability to say "Hello, my name is Kennan!" Use the console.log provided as a hint.
-intern.map(function(x){
-  x.introduce = (function(){
+kennan.introduce = (function(){
     return `Hello, my name is ${this.name}!`;
-  });
-  return x;
 });
 // console.log(kennan.speak());
-console.log(intern[1].introduce());
+console.log(kennan.introduce());
 // Antonietta loves math, give her the ability to multiply two numbers together and return the product. Use the console.log provided as a hint.
-  intern.map(function(x){x.multiply = function(x, y){return x * y;}; return x;});
+  antonietta.multiply = function(x, y){return x * y;};
 //console.log(antonietta.multiplyNums(3,4));
-console.log(intern[4].multiply(5, 5));
+console.log(antonietta.multiply(5, 5));
 // === Great work! === Head over to the the arrays.js file or take a look at the stretch challenge
 
 // ==== Stretch Challenge: Nested Objects and the this keyword ====
@@ -82,3 +86,35 @@ console.log(parent[0].say());
 console.log(parent[1].say());
 // Have the grandchild speak
 console.log(parent[2].say());
+
+
+          // Using Object Constructor
+// function people(name, age){
+//   this.name = name,
+//   this.age = age;
+// }
+
+// let parent = new people('Susan', 70),
+//     child = new people('George', 50),
+//     grandchild = new people('Sam', 30);
+// parent.say = (function(){
+//     return `My name is ${this.name}. Pleased to sayName. XD`;
+//   });
+// child.say = (function(){
+//     return `My name is ${this.name}. Pleased to sayName. XD`;
+//   });
+// grandchild.say = (function(){
+//     return `My name is ${this.name}. Pleased to sayName. XD`;
+//   });
+// // Log the parent object's name
+// console.log(parent.name);
+// // Log the child's age
+// console.log(child.age);
+// // Log the name and age of the grandchild
+// console.log(grandchild.name, grandchild.age);
+// // Have the parent speak
+// console.log(parent.say());
+// // Have the child speak
+// console.log(child.say());
+// // Have the grandchild speak
+// console.log(grandchild.say());
